@@ -1,0 +1,6 @@
+export { default as IntroductionSection } from "./IntroductionSection"
+export { default as BioSection } from "./bioSection"
+export { default as SkillsSection } from "./skillsSection"
+export { default as ResumeSection } from "./resumeSection"
+export { default as ProjectsSection } from "./projectsSection"
+export { default as GitHubSection } from "./githubSection"
