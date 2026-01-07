@@ -1,0 +1,14 @@
+:root {
+    --page-background-color: oklch(0.98 0 0);
+
+    --color-primary: oklch(0.5397 0.1564 290.85);
+    --color-secondary: oklch(0.7509 0.1492 230.19);
+    --color-tertiary: oklch(0.6085 0.208 263.45);
+
+    --text-color: oklch(0.3211 0 0);
+    --text-opposite-color: oklch(0.95 0 0);
+
+    --item-background-color: oklch(0.98 0 0);
+
+    --icon-color: oklch(0.5397 0.1564 290.85);
+}
