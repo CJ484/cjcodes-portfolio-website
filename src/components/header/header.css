@@ -2,8 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-2) var(--spacing-5);
   position: relative;
+  padding: var(--spacing-2);
+
+  @media (min-width: var(--breakpoint-mobile)) {
+    padding: var(--spacing-2) var(--spacing-5);
+  }
 }
 
 .header__logo {
