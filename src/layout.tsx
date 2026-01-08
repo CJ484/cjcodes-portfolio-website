@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "@/not-found";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import SocialLinks from "./components/socialLinks";
+import { Header, Footer, SocialLinks, Navbar } from "./components";
 import {
   IntroductionSection,
   BioSection,
@@ -11,7 +9,7 @@ import {
   GitHubSection,
   SkillsSection,
 } from "./containers";
-import "@/styles/index.css";
+import "@/styles/styles.css";
 
 function Home() {
   return (
@@ -38,6 +36,7 @@ export default function Layout() {
       </BrowserRouter>
       <Footer />
       <SocialLinks />
+      <Navbar />
     </div>
   );
 }
