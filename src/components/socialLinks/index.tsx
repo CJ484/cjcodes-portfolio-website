@@ -36,8 +36,8 @@ export default function SocialLinks() {
     });
   });
   return (
-    <div className="socialLinksSection__links">
-      <span className="socialLinksSection__links__title">Follow me on:</span>
+    <div className="socialLinksSection__links" style={{ transform: "translateX(-100%)" }}>
+      <span className="socialLinksSection__links__title">Contact me:</span>
       {socialLinks.map((link) => (
         <a
           className="socialLinksSection__links__item"
