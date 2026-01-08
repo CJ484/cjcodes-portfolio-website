@@ -1,0 +1,26 @@
+.navbar {
+    position: fixed;
+    top: 30%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) 0;
+    background: var(--color-primary);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    .navbar__item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-1);
+        text-decoration: none;
+        color: white;
+        font-size: var(--font-size-1);
+        font-weight: 600;
+        writing-mode: vertical-rl;
+        transition: all 0.3s ease-in-out;
+        padding: 4px;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
