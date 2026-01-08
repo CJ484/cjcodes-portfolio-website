@@ -6,7 +6,6 @@ import {
   BioSection,
   ResumeSection,
   ProjectsSection,
-  GitHubSection,
   SkillsSection,
 } from "./containers";
 import "@/styles/styles.css";
@@ -19,7 +18,6 @@ function Home() {
       <SkillsSection />
       <ResumeSection />
       <ProjectsSection />
-      <GitHubSection />
     </main>
   );
 }
