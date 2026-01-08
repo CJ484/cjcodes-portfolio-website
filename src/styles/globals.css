@@ -7,6 +7,7 @@
 /* 1. Box-sizing: Border-box for all elements */
 *, *::before, *::after {
   box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 /* 2. Prevent font size inflation on mobile */
@@ -97,5 +98,14 @@ p, h1, h2, h3, h4, h5, h6 {
 html {
   background-color: var(--page-background-color);
   color: var(--text-color);
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
