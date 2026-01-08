@@ -1,6 +1,8 @@
 .navbar {
+    max-width: 36px;
+    width: 100%;
     position: fixed;
-    top: 30%;
+    top: 35%;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -8,6 +10,9 @@
     padding: var(--spacing-2) 0;
     background: var(--color-primary);
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
     .navbar__item {
         display: flex;
         align-items: center;
@@ -19,8 +24,10 @@
         writing-mode: vertical-rl;
         transition: all 0.3s ease-in-out;
         padding: 4px;
+        border-radius: var(--radius-md);
         &:hover {
-            color: var(--color-primary);
+            color: color-mix(in oklch, var(--color-primary) 50%, oklch(0.1 0 0));
+            background-color: oklch(1 0 none / 0.75);
         }
     }
 }
