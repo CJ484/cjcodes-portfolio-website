@@ -1,14 +1,21 @@
-import { LuHouse, LuBriefcase, LuFolder, LuGithub } from "react-icons/lu";
+import { LuHouse, LuBriefcase, LuFolder, LuUser } from "react-icons/lu";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "./navbar.css";
 
 export default function Navbar() {
+  const tl = gsap.timeline();
+
     const linkItems = [
         {
           label: "Home",
           href: "#home",
           icon: <LuHouse />,
+        },
+        {
+          label: "Bio",
+          href: "#bio",
+          icon: <LuUser />,
         },
         {
           label: "Resume",
@@ -20,19 +27,28 @@ export default function Navbar() {
           href: "#projects",
           icon: <LuFolder />,
         },
-        {
-          label: "Github",
-          href: "#github",
-          icon: <LuGithub />,
-        },
       ];
       useGSAP(() => {
-        gsap.to(".navbar", {
+        tl.fromTo(".navbar", {
+          opacity: 0,
+          x: 100,
+          scale: 0.8,
+        }, {
           opacity: 1,
-          x: "0",
+          x: 0,
+          scale: 1,
           duration: 1,
-          ease: "power2.inOut",
-          delay: 0.5,
+          ease: "power2.in",
+        });
+        tl.fromTo(".navbar__item", {
+          x: 100,
+          opacity: 0,
+        }, {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.in",
+          stagger: 0.1,
         });
       });
     return (
