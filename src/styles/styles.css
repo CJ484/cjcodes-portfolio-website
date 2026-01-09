@@ -64,13 +64,14 @@ section {
 .bioSection {
   .bioSection__paragraph {
     margin-bottom: var(--spacing-2);
+    line-height: 1.75;
     &::first-letter {
       font-weight: 600;
       font-size: var(--font-size-2);
       color: var(--color-primary);
     }
-    .bioSection__paragraph__highlight {
-      padding: 0.25rem 0.5rem;
+    .highlight {
+      padding: 0.15rem 0.5rem;
       border-radius: var(--radius-md);
       color: var(--color-primary);
       background-color: color-mix(
