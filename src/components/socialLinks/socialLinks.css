@@ -1,4 +1,4 @@
-.socialLinksSection__links {
+.socialLinks {
   max-width: 36px;
   width: 100%;
   display: flex;
@@ -18,7 +18,7 @@
   z-index: 10;
   font-size: var(--font-size-1);
 }
-.socialLinksSection__links__title {
+.socialLinks__title {
   font-weight: 600;
   color: white;
   writing-mode: vertical-rl;
@@ -27,17 +27,14 @@
   justify-content: center;
 }
 
-.socialLinksSection__links__item {
+.socialLinks__item {
   color: white;
   border-radius: var(--radius-full);
   padding: 4px;
   aspect-ratio: 1/1;
+  font-size: var(--font-size-2);
   &:hover {
     color: color-mix(in oklch, var(--color-primary) 50%, oklch(0.1 0 0));
     background-color: oklch(1 0 none / 0.75);
   }
-}
-
-.socialLinksSection__links__item__icon {
-  font-size: var(--font-size-2);
 }

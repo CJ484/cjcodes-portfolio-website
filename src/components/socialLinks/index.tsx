@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
 import "./socialLinks.css";
 export default function SocialLinks() {
+  const tl = gsap.timeline();
   const socialLinks = [
     {
       label: "GitHub",
@@ -22,7 +23,7 @@ export default function SocialLinks() {
   ];
 
   useGSAP(() => {
-    gsap.fromTo(".socialLinksSection__links", {
+    tl.fromTo(".socialLinks", {
       x: -100,
       opacity: 0,
       scale: 0.8,
@@ -31,22 +32,31 @@ export default function SocialLinks() {
       opacity: 1,
       scale: 1,
       duration: 1,
-      ease: "power2.inOut",
-      delay: 0.25,
+      ease: "power2.in",
+    });
+    tl.fromTo(".socialLinks__item", {
+      x: -100,
+      opacity: 0,
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.in",
+      stagger: 0.1,
     });
   });
   return (
-    <div className="socialLinksSection__links" style={{ transform: "translateX(-100%)" }}>
-      <span className="socialLinksSection__links__title">Contact me:</span>
+    <div className="socialLinks" style={{ transform: "translateX(-100%)" }}>
+      <span className="socialLinks__title ">Contact me:</span>
       {socialLinks.map((link) => (
         <a
-          className="socialLinksSection__links__item"
+          className="socialLinks__item"
           key={link.href}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="socialLinksSection__links__item__icon">
+          <span className="socialLinks__item__icon">
             {link.icon}
           </span>
         </a>
