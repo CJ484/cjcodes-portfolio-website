@@ -55,4 +55,12 @@ export const skills = [
     name: "Typescript",
     image: "/images/skills/typescript.svg",
   },
+  {
+    name: "Wordpress",
+    image: "images/skills/wordpress.svg"
+  },
+  {
+    name: "Webflow",
+    image: "/images/skills/webflow.svg"
+  }
 ];
