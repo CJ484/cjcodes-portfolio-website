@@ -2,14 +2,15 @@ import { LuExternalLink } from "react-icons/lu";
 
 type EducationProps = {
   id: number;
-  name: string;
+  school: string;
   duration: string;
   description: string[];
 };
 
 type ExperienceProps = {
   id: number;
-  name: string;
+  company: string;
+  role: string;
   duration: string;
   description: string[];
 };
@@ -17,119 +18,144 @@ type ExperienceProps = {
 export default function ResumeSection() {
   const experience: ExperienceProps[] = [
     {
-      id: 1,
-      name: "Freelance",
-      duration: "July 2024 - September 2025",
+      id: 3,
+      company: "Accoric",
+      role: "Frontend Developer",
+      duration: "March 2021 - September 2025",
       description: [
-        "I am a freelance web developer for a variety of clients. I created a website for them using React and Next.js.",
+        "Architected and deployed a full-scale web presence from the ground up using React, Next.js, and TypeScript.",
+        "Engineered high-conversion landing pages to support a successful pre-launch strategy for the company's mobile application.",
+        "Collaborated on brand growth by integrating social media content strategies that directly increased user engagement and reach.",
       ],
     },
     {
       id: 2,
-      name: "Fast Line Safety Training",
+      company: "Fast Line Safety Training",
+      role: "SEO Specialist & Web Developer",
       duration: "March 2021 - September 2025",
       description: [
-        "I am a freelance web developer for Fast Line Safety Training. I created a website for them using React and Next.js.",
-        "I also created a website for them using React and Next.js.",
+        "Optimized website performance by improving Core Web Vitals, resulting in faster load times and an enhanced user experience.",
+        "Implemented SEO best practices and technical audits that increased organic search visibility and site traffic.",
+        "Streamlined client operations by designing professional, reusable document templates and brand assets.",
+      ],
+    },
+    {
+      id: 1,
+      company: "CJ Codes",
+      role: "Freelance Web Developer",
+      duration: "July 2024 - September 2025",
+      description: [
+        "Consult with diverse clients to transform business requirements into responsive, high-performance web applications using Next.js.",
+        "Develop clean, maintainable, and scalable codebases while adhering to industry-standard security and accessibility (WCAG) protocols.",
+        "Manage the full project lifecycle from initial Figma wireframing to deployment and post-launch maintenance.",
       ],
     },
   ];
   const education: EducationProps[] = [
     {
       id: 1,
-      name: "General Assembly",
+      school: "Private Mentor - Online",
       duration: "March 2023 - March 2024",
       description: [
-        `Taught By <a href="https://github.com/michaeltomasik" target="_blank" rel="noopener noreferrer">Michał Tomasik</a> on how to be a better developer`,
+        `Mentored by <a href="https://github.com/michaeltomasik" target="_blank" rel="noopener noreferrer">Michał Tomasik</a> to master enterprise-level development workflows.`,
+        "Focused on advanced topics including API integration, scalable folder architecture, and internationalization (i18n).",
+        "Utilized industry-standard tools like Figma for design-to-code handoffs and Slack for asynchronous team communication.",
       ],
     },
     {
       id: 2,
-      name: "General Assembly",
+      school: "General Assembly - Online",
       duration: "September 2021 - December 2021",
       description: [
-        "I took a 3 month bootcamp to learn more about Javascript and React.",
+        "3 month bootcamp to learn more about the fundamentals of Javascript and React.",
+        "Projects I worked on were a CRUD Todo List App, Online Firebase Chatbot, and a Recipe App connected to an API.",
       ],
     },
     {
       id: 3,
-      name: "Codecademy",
+      school: "Codecademy - Online",
       duration: "December 2020 - March 2021",
       description: [
-        "I started my learning path by self teaching myself the basics of HTML, CSS, and Javascript.",
+        "Started my learning path by self teaching myself the basics of HTML, CSS, Javascript, Git, and GitHub.",
+        "Reading books and watching online tutorials to learn more about the basics of programming.",
       ],
     },
     {
       id: 4,
-      name: "Suffolk County Community College",
+      school: "Suffolk County Community College",
       duration: "August 2015 - January 2021",
       description: [
         "I received my Associates Degree in Liberal Arts and Sciences.",
+        "Took a variety of courses that helped me develop my critical thinking and problem-solving skills. including coursework in Computer Science, Mathematics, and Problem Solving.",
       ],
     },
   ];
   return (
     <section id="resume" className="resumeSection">
       <div className="container">
-        <h1>Resume</h1>
-        <div className="resumeLink">
-          <a className="resumeLink__link" href="/resume/pdf">
-            View PDF Resume
+        <div className="resumeSection__header">
+          <h2 className="sectionTitle">Resume</h2>
+
+          <a className="resumeLink__link" href="https://docs.google.com/document/d/1Jxc2VQ64EsG2RAAKvZBG4zuN8lFK2JEQS6Jixa-ZT6Q/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            Link to my Resume
             <LuExternalLink className="resumeLink__link__icon" />
           </a>
         </div>
-        <div>
-          <div className="experienceSection">
-            <h2 className="sectionTitle">Experience</h2>
-            {experience.map((item) => (
-              <div key={item.id} className="experienceSection__item">
-                <div className="experienceSection__item__header">
-                  <h3 className="experienceSection__item__header__name">
-                    {item.name}
-                  </h3>
-                  <span className="divider"></span>
-                  <h4 className="experienceSection__item__header__duration">
-                    {item.duration}
+        <div className="experienceSection">
+          <h3 className="experienceSection__title">Experience</h3>
+          {experience.map((item) => (
+            <div key={item.id} className="experienceSection__item">
+              <div className="experienceSection__item__header">
+                <div className="experienceSection__item__header__name__container">
+                  <h4 className="experienceSection__item__header__role">
+                    {item.role}
                   </h4>
-                </div>
-                <ul className="experienceSection__item__description">
-                  {item.description.map((description, index) => (
-                    <li
-                      className="experienceSection__item__description__item"
-                      key={`${item.id}-${index}`}
-                    >
-                      {description}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="educationSection">
-            <h2 className="sectionTitle">Education</h2>
-            {education.map((item) => (
-              <div key={item.id} className="educationSection__item">
-                <div className="educationSection__item__header">
-                  <h3 className="educationSection__item__header__name">
-                    {item.name}
+                  <h3 className="experienceSection__item__header__name">
+                    {item.company}
                   </h3>
-                  <span className="divider"></span>
-                  <p className="educationSection__item__header__duration">
-                    {item.duration}
-                  </p>
                 </div>
-                <ul className="educationSection__item__description">
-                  {item.description.map((description, index) => (
-                    <li
-                      className="educationSection__item__description__item"
-                      key={`${item.id}-${index}`}
-                      dangerouslySetInnerHTML={{ __html: description }}
-                    />
-                  ))}
-                </ul>
+                <span className="divider"></span>
+                <h4 className="experienceSection__item__header__duration">
+                  {item.duration}
+                </h4>
               </div>
-            ))}
-          </div>
+              <ul className="experienceSection__item__description">
+                {item.description.map((description, index) => (
+                  <li
+                    className="experienceSection__item__description__item"
+                    key={`${item.id}-${index}`}
+                  >
+                    {description}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="educationSection">
+          <h3 className="educationSection__title">Education</h3>
+          {education.map((item) => (
+            <div key={item.id} className="educationSection__item">
+              <div className="educationSection__item__header">
+                <h3 className="educationSection__item__header__name">
+                  {item.school}
+                </h3>
+                <span className="divider"></span>
+                <p className="educationSection__item__header__duration">
+                  {item.duration}
+                </p>
+              </div>
+              <ul className="educationSection__item__description">
+                {item.description.map((description, index) => (
+                  <li
+                    className="educationSection__item__description__item"
+                    key={`${item.id}-${index}`}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

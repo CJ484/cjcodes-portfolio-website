@@ -58,6 +58,18 @@ section {
     max-width: 250px;
     border-radius: var(--radius-xl);
     border: 5px solid var(--color-primary);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: oklch(0.95 0 0);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
   }
 }
 
@@ -102,16 +114,22 @@ section {
     margin: 0 auto;
   }
 
+  .resumeSection__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
   .resumeLink__link {
-    margin: var(--spacing-2) auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: var(--spacing-1);
     border: 1px solid var(--color-primary);
-    font-size: var(--font-size-2);
-    padding: var(--spacing-2);
+    font-size: var(--font-size-1);
+    padding: var(--spacing-1);
     border-radius: var(--radius-md);
     border: 2px solid var(--color-primary);
     transition: all 0.3s ease;
@@ -133,8 +151,9 @@ section {
 
   .experienceSection,
   .educationSection {
+    max-width: 1000px;
     width: 100%;
-    margin: var(--spacing-2) auto;
+    margin: var(--spacing-4) auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -145,7 +164,6 @@ section {
   .experienceSection__item,
   .educationSection__item {
     width: 100%;
-    max-width: 1000px;
     margin: 0 auto;
     padding: var(--spacing-2);
     border-radius: var(--radius-lg);
@@ -157,9 +175,39 @@ section {
   .educationSection__item__header {
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--spacing-3);
   }
 
-  .experienceSection__item__header__name,
+  .experienceSection__title,
+  .educationSection__title {
+    font-size: var(--font-size-2);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-1);
+    border-radius: var(--radius-lg);
+    background-color: color-mix(
+      in oklch,
+      var(--color-primary) 10%,
+      transparent
+    );
+    padding: var(--spacing-1);
+    width: fit-content;
+  }
+
+  .experienceSection__item__header__name__container {
+    display: flex;
+    gap: var(--spacing-1);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .experienceSection__item__header__name {
+    font-size: var(--font-size-1);
+    color: oklch(0.5 0 0);
+    font-weight: 400;
+  }
+
+  .experienceSection__item__header__role,
   .educationSection__item__header__name {
     font-size: var(--font-size-2);
     font-weight: 600;
@@ -169,6 +217,7 @@ section {
   .educationSection__item__header__duration {
     align-self: flex-end;
     font-size: var(--font-size-1);
+    font-weight: 400;
     color: var(--color-primary);
     padding: 0.25rem 0.5rem;
     margin-bottom: var(--spacing-1);
