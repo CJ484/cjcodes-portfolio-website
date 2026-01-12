@@ -33,3 +33,9 @@
     }
   }
   
+  .glassmorphism {
+    background-color: color-mix(in oklch, var(--color-primary) 10%, transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px 0 color-mix(in oklch, var(--color-primary) 10%, transparent);
+    border: 3px solid color-mix(in oklch, var(--color-primary) 10%, transparent);
+  }
