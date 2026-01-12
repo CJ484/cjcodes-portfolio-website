@@ -102,7 +102,7 @@ export default function ResumeSection() {
           </a>
         </div>
         <div className="experienceSection">
-          <h3 className="experienceSection__title">Experience</h3>
+          <h3 className="experienceSection__title glassmorphism">Experience</h3>
           {experience.map((item) => (
             <div key={item.id} className="experienceSection__item">
               <div className="experienceSection__item__header">
@@ -133,7 +133,7 @@ export default function ResumeSection() {
           ))}
         </div>
         <div className="educationSection">
-          <h3 className="educationSection__title">Education</h3>
+          <h3 className="educationSection__title glassmorphism">Education</h3>
           {education.map((item) => (
             <div key={item.id} className="educationSection__item">
               <div className="educationSection__item__header">
