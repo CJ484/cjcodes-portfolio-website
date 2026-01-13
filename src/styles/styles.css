@@ -12,7 +12,6 @@
   padding: 0 var(--spacing-3);
   max-width: 1400px;
   margin: 0 auto;
-  scroll-snap-type: y mandatory;
 }
 
 section {
@@ -74,6 +73,11 @@ section {
 }
 
 .bioSection {
+  .bioSection__content {
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-4) auto;
+  }
   .bioSection__paragraph {
     margin-bottom: var(--spacing-2);
     line-height: 1.75;
@@ -95,6 +99,67 @@ section {
   }
 }
 
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+  .skills {
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .skillsSection__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin: var(--spacing-4) auto;
+  }
+
+  .skills__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--color-primary);
+      transform: scale(1.05) rotate(5deg);
+      color: oklch(0.95 0 0);
+    }
+  }
+
+  .skills__item__image {
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: auto;
+    max-width: 50px;
+  }
+
+  .skills__item__name {
+    font-size: var(--font-size-2);
+    text-align: center;
+  }
+}
+
+
 .resumeSection {
   .resumeContainer {
     display: flex;
@@ -104,13 +169,6 @@ section {
     gap: var(--spacing-2);
     padding: var(--spacing-2);
     max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .resumeLink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
   }
 
@@ -135,6 +193,11 @@ section {
     transition: all 0.3s ease;
     text-decoration: none;
     color: var(--color-primary);
+    background-color: color-mix(
+      in oklch,
+      var(--color-primary) 10%,
+      transparent
+    );
     &:hover {
       background-color: var(--color-primary);
       color: oklch(0.95 0 0);
@@ -185,11 +248,6 @@ section {
     color: var(--color-primary);
     margin-bottom: var(--spacing-1);
     border-radius: var(--radius-lg);
-    background-color: color-mix(
-      in oklch,
-      var(--color-primary) 10%,
-      transparent
-    );
     padding: var(--spacing-1);
     width: fit-content;
   }
@@ -252,77 +310,16 @@ section {
   }
 }
 
-.skillsSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2);
-  .skills {
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-2);
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .skillsSection__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-2);
-  }
-
-  .skills__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-1);
-    padding: var(--spacing-1);
-    border: 3px solid var(--color-primary);
-    border-radius: var(--radius-lg);
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: var(--color-primary);
-      transform: scale(1.05) rotate(5deg);
-      color: oklch(0.95 0 0);
-    }
-  }
-
-  .skills__item__image {
-    aspect-ratio: 1/1;
-    width: 100%;
-    height: auto;
-    max-width: 50px;
-  }
-
-  .skills__item__name {
-    font-size: var(--font-size-2);
-    text-align: center;
-  }
-}
-
 .projectsSection {
   .projects {
+    margin: var(--spacing-4) auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-2);
     @media (min-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+
   }
   
   .projects__content {
@@ -335,7 +332,6 @@ section {
     border: 1px solid var(--color-primary);
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1/1;
   }
 
   .projects__content__info {
