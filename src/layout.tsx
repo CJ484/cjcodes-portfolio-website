@@ -9,6 +9,10 @@ import {
   SkillsSection,
 } from "./containers";
 import "@/styles/styles.css";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   return (
