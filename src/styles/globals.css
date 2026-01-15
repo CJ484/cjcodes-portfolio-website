@@ -98,8 +98,9 @@ p, h1, h2, h3, h4, h5, h6 {
 html {
   background-color: var(--page-background-color);
   color: var(--text-color);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 100px;
+  scroll-snap-type: y mandatory;
 }
 
 html {
