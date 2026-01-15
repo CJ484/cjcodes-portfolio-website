@@ -29,29 +29,12 @@ export default function BioSection() {
         },
       }
     );
-
-    // gsap.fromTo('.bioSection__paragraph', {
-    // 	opacity: 0,
-    // 	y: 100,
-    // }, {
-    // 	opacity: 1,
-    // 	y: 0,
-    // 	duration: 0.5,
-    // 	ease: "power2.inOut",
-    // 	stagger: 0.1,
-    // 	scrollTrigger: {
-    // 		trigger: '.bioSection',
-    // 		start: 'top 50%',
-    // 		end: 'bottom 20%',
-    // 		toggleActions: "play none none reverse",
-    // 	}
-    // })
   });
 
   return (
     <section id="bio" className="bioSection">
       <div className="container">
-        <h2 className="sectionTitle">Bio</h2>
+        <h2 className="sectionTitle">Get to know me</h2>
         <div className="bioSection__content">
           <p className="bioSection__paragraph">
             I am a <span className="highlight">Front-End Developer</span> with a
