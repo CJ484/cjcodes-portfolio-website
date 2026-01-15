@@ -94,7 +94,6 @@ export default function ResumeSection() {
   ];
 
   useGSAP(() => {
-    // Separate animation for experience section
     gsap.fromTo('.experienceSection__item', {
       opacity: 0,
       y: 100,
@@ -112,7 +111,6 @@ export default function ResumeSection() {
       }
     })
     
-    // Separate animation for education section
     gsap.fromTo('.educationSection__item', {
       opacity: 0,
       y: 100,
@@ -129,6 +127,21 @@ export default function ResumeSection() {
         toggleActions: "play none none reverse",
       }
     })
+    gsap.fromTo('.resumeLink__link', {
+      opacity: 0,
+      y: 100,
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: '.resumeSection',
+        start: 'top 50%',
+        end: 'bottom bottom',
+        toggleActions: "play none none reverse",
+      }
+    })
   });
 
   return (
@@ -137,10 +150,6 @@ export default function ResumeSection() {
         <div className="resumeSection__header">
           <h2 className="sectionTitle">Resume</h2>
 
-          <a className="resumeLink__link" href="https://docs.google.com/document/d/1Jxc2VQ64EsG2RAAKvZBG4zuN8lFK2JEQS6Jixa-ZT6Q/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
-            Link to my Resume
-            <LuExternalLink className="resumeLink__link__icon" />
-          </a>
         </div>
         <div className="experienceSection">
           <h3 className="experienceSection__title">Experience</h3>
@@ -198,6 +207,11 @@ export default function ResumeSection() {
             </div>
           ))}
         </div>
+        
+        <a className="resumeLink__link" href="https://docs.google.com/document/d/1Jxc2VQ64EsG2RAAKvZBG4zuN8lFK2JEQS6Jixa-ZT6Q/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            Link to my Resume
+            <LuExternalLink className="resumeLink__link__icon" />
+          </a>
       </div>
     </section>
   );
