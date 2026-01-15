@@ -1,24 +1,52 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+
 export default function BioSection() {
-	useGSAP(() => {
-		gsap.fromTo('.bioSection__paragraph', {
-			opacity: 0,
-			y: 100,
-		}, {
-			opacity: 1,
-			y: 0,
-			duration: 0.5,
-			ease: "power2.inOut",
-			stagger: 0.1,
-			scrollTrigger: {
-				trigger: '.bioSection',
-				start: 'top 50%',
-				end: 'bottom 20%',
-				toggleActions: "play none none reverse",
-			}
-		})
-	})
+  gsap.registerPlugin(SplitText);
+
+  useGSAP(() => {
+    const paragraphsLetters = SplitText.create(".bioSection__paragraph", {
+      type: "chars",
+    });
+
+    gsap.fromTo(paragraphsLetters.chars,
+      {
+        opacity: 0,
+        y: -500,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+        stagger: 0.01,
+        scrollTrigger: {
+          trigger: ".bioSection",
+          start: "top 50%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // gsap.fromTo('.bioSection__paragraph', {
+    // 	opacity: 0,
+    // 	y: 100,
+    // }, {
+    // 	opacity: 1,
+    // 	y: 0,
+    // 	duration: 0.5,
+    // 	ease: "power2.inOut",
+    // 	stagger: 0.1,
+    // 	scrollTrigger: {
+    // 		trigger: '.bioSection',
+    // 		start: 'top 50%',
+    // 		end: 'bottom 20%',
+    // 		toggleActions: "play none none reverse",
+    // 	}
+    // })
+  });
 
   return (
     <section id="bio" className="bioSection">
