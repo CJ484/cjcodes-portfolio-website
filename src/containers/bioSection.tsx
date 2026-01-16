@@ -1,37 +1,30 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+import { gsap, SplitText, ScrollTrigger } from "gsap/all";
 
 export default function BioSection() {
-  gsap.registerPlugin(SplitText);
-
-  useGSAP(() => {
-    const paragraphsLetters = SplitText.create(".bioSection__paragraph", {
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+  useGSAP(() => {  
+    SplitText.create(".bioSection__paragraph", {
       type: "lines",
-    });
-
-    gsap.fromTo(paragraphsLetters.lines,
-      {
-        opacity: 0,
-        y: -500,
+      autoSplit: true,
+      mask: "lines",
+      onSplit(self) {
+        gsap.fromTo(self.lines, {
+          y: -100,
+        }, {
+          y: 0,
+          duration: 0.5,
+          ease: "power4.out",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".bioSection",
+            start: "top 50%",
+            end: "bottom 20%",
+            once: true,
+          },
+        });
       },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".bioSection",
-          start: "top 50%",
-          end: "bottom 20%",
-          once: true,
-        },
-      }
-    );
-    return () => {
-      gsap.killTweensOf(paragraphsLetters.lines);
-    }
+    });
   });
 
   return (
