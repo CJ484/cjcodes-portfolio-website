@@ -1,10 +1,12 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { LuExternalLink } from "react-icons/lu";
+import { SplitText } from "gsap/SplitText";
 
 type EducationProps = {
   id: number;
   school: string;
+  method: string;
   duration: string;
   description: string[];
 };
@@ -18,6 +20,8 @@ type ExperienceProps = {
 };
 
 export default function ResumeSection() {
+  gsap.registerPlugin(SplitText);
+
   const experience: ExperienceProps[] = [
     {
       id: 3,
@@ -56,7 +60,8 @@ export default function ResumeSection() {
   const education: EducationProps[] = [
     {
       id: 1,
-      school: "Private Mentor - Online",
+      school: "Private Mentor",
+      method: "Online",
       duration: "March 2023 - March 2024",
       description: [
         `Mentored by <a href="https://github.com/michaeltomasik" target="_blank" rel="noopener noreferrer">Michał Tomasik</a> to master enterprise-level development workflows.`,
@@ -66,7 +71,8 @@ export default function ResumeSection() {
     },
     {
       id: 2,
-      school: "General Assembly - Online",
+      school: "General Assembly",
+      method: "Online",
       duration: "September 2021 - December 2021",
       description: [
         "3 month bootcamp to learn more about the fundamentals of Javascript and React.",
@@ -75,7 +81,8 @@ export default function ResumeSection() {
     },
     {
       id: 3,
-      school: "Codecademy - Online",
+      school: "Codecademy",
+      method: "Online",
       duration: "December 2020 - March 2021",
       description: [
         "Started my learning path by self teaching myself the basics of HTML, CSS, Javascript, Git, and GitHub.",
@@ -85,6 +92,7 @@ export default function ResumeSection() {
     {
       id: 4,
       school: "Suffolk County Community College",
+      method: "In-Person",
       duration: "August 2015 - January 2021",
       description: [
         "I received my Associates Degree in Liberal Arts and Sciences.",
@@ -94,124 +102,199 @@ export default function ResumeSection() {
   ];
 
   useGSAP(() => {
-    gsap.fromTo('.experienceSection__item', {
-      opacity: 0,
-      y: 100,
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '.experienceSection',
-        start: 'top 50%',
-        end: 'bottom bottom',
-        toggleActions: "play none none reverse",
+    SplitText.create(".experienceSection__title", {
+      type: "chars",
+      autoSplit: true,
+      mask: "chars",
+      onSplit(self) {
+        gsap.fromTo(self.chars, {
+          opacity: 0,
+          y: -100,
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.2,
+          ease: "power4.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: ".experienceSection",
+            start: "top 50%",
+            end: "bottom bottom",
+            once: true,
+          },
+        });
+      },
+      onComplete(self: Array<HTMLHeadingElement>) {
+        self.forEach((title) => {
+          gsap.killTweensOf(title);
+        });
       }
-    })
-    
-    gsap.fromTo('.educationSection__item', {
-      opacity: 0,
-      y: 100,
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '.educationSection',
-        start: 'top 50%',
-        end: 'bottom bottom',
-        toggleActions: "play none none reverse",
+    });
+    SplitText.create(".educationSection__title", {
+      type: "chars",
+      autoSplit: true,
+      mask: "chars",
+      onSplit(self) {
+        gsap.fromTo(self.chars, {
+          opacity: 0,
+          y: -100,
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.2,
+          ease: "power4.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: ".educationSection",
+            start: "top 50%",
+            end: "bottom bottom",
+            once: true,
+          },
+        });
+      },
+    });
+
+    gsap.fromTo(
+      ".experienceSection__item",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.25,
+        ease: "power2.inOut",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".experienceSection",
+          start: "top 50%",
+          end: "bottom bottom",
+          once: true
+        },
       }
-    })
-    gsap.fromTo('.resumeLink__link', {
-      opacity: 0,
-      y: 100,
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: '.resumeSection',
-        start: 'top 50%',
-        end: 'bottom bottom',
-        toggleActions: "play none none reverse",
+    );
+
+    gsap.fromTo(
+      ".educationSection__item",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.25,
+        ease: "power2.inOut",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".educationSection",
+          start: "top 50%",
+          end: "bottom bottom",
+          once: true
+        },
       }
-    })
+    );
+    gsap.fromTo(
+      ".resumeLink__link",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: ".experienceSection",
+          start: "top 80%",
+          end: "bottom bottom",
+          once: true
+        },
+      }
+    );
   });
 
   return (
     <section id="resume" className="resumeSection">
       <div className="container">
-        <div className="resumeSection__header">
-          <h2 className="sectionTitle">Resume</h2>
-
-        </div>
-        <div className="experienceSection">
-          <h3 className="experienceSection__title">Experience</h3>
-          {experience.map((item) => (
-            <div key={item.id} className="experienceSection__item">
-              <div className="experienceSection__item__header">
-                <div className="experienceSection__item__header__name__container">
-                  <h4 className="experienceSection__item__header__role">
-                    {item.role}
+        <div className="resumeSection__content">
+          <div className="resumeSection__header">
+            <h2 className="sectionTitle">Resume</h2>
+          </div>
+          <div className="experienceSection">
+            <h3 className="experienceSection__title">Experience</h3>
+            {experience.map((item) => (
+              <div key={item.id} className="experienceSection__item">
+                <div className="experienceSection__item__header">
+                  <div className="experienceSection__item__header__name__container">
+                    <h4 className="experienceSection__item__header__name">
+                      {item.role}
+                    </h4>
+                    <h3 className="experienceSection__item__header__sideInfo">
+                      {item.company}
+                    </h3>
+                  </div>
+                  <span className="divider"></span>
+                  <h4 className="experienceSection__item__header__duration">
+                    {item.duration}
                   </h4>
-                  <h3 className="experienceSection__item__header__name">
-                    {item.company}
-                  </h3>
                 </div>
-                <span className="divider"></span>
-                <h4 className="experienceSection__item__header__duration">
-                  {item.duration}
-                </h4>
+                <ul className="experienceSection__item__description">
+                  {item.description.map((description, index) => (
+                    <li
+                      className="experienceSection__item__description__item"
+                      key={`${item.id}-${index}`}
+                    >
+                      {description}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="experienceSection__item__description">
-                {item.description.map((description, index) => (
-                  <li
-                    className="experienceSection__item__description__item"
-                    key={`${item.id}-${index}`}
-                  >
-                    {description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="educationSection">
-          <h3 className="educationSection__title">Education</h3>
-          {education.map((item) => (
-            <div key={item.id} className="educationSection__item">
-              <div className="educationSection__item__header">
-                <h3 className="educationSection__item__header__name">
-                  {item.school}
-                </h3>
-                <span className="divider"></span>
-                <p className="educationSection__item__header__duration">
-                  {item.duration}
-                </p>
+            ))}
+          </div>
+          <div className="educationSection">
+            <h3 className="educationSection__title">Education</h3>
+            {education.map((item) => (
+              <div key={item.id} className="educationSection__item">
+                <div className="educationSection__item__header">
+                  <div className="educationSection__item__header__name__container">
+                    <h4 className="educationSection__item__header__name">
+                      {item.school}
+                    </h4>
+                    <h3 className="educationSection__item__header__sideInfo">
+                      {item.method}
+                    </h3>
+                  </div>
+                  <span className="divider"></span>
+                  <p className="educationSection__item__header__duration">
+                    {item.duration}
+                  </p>
+                </div>
+                <ul className="educationSection__item__description">
+                  {item.description.map((description, index) => (
+                    <li
+                      className="educationSection__item__description__item"
+                      key={`${item.id}-${index}`}
+                      dangerouslySetInnerHTML={{ __html: description }}
+                    />
+                  ))}
+                </ul>
               </div>
-              <ul className="educationSection__item__description">
-                {item.description.map((description, index) => (
-                  <li
-                    className="educationSection__item__description__item"
-                    key={`${item.id}-${index}`}
-                    dangerouslySetInnerHTML={{ __html: description }}
-                  />
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        
-        <a className="resumeLink__link" href="https://docs.google.com/document/d/1Jxc2VQ64EsG2RAAKvZBG4zuN8lFK2JEQS6Jixa-ZT6Q/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            ))}
+          </div>
+
+          <a
+            className="resumeLink__link"
+            href="https://docs.google.com/document/d/1Jxc2VQ64EsG2RAAKvZBG4zuN8lFK2JEQS6Jixa-ZT6Q/edit?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Link to my Resume
             <LuExternalLink className="resumeLink__link__icon" />
           </a>
+        </div>
       </div>
     </section>
   );
