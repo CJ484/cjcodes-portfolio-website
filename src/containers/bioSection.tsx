@@ -7,10 +7,10 @@ export default function BioSection() {
 
   useGSAP(() => {
     const paragraphsLetters = SplitText.create(".bioSection__paragraph", {
-      type: "chars",
+      type: "lines",
     });
 
-    gsap.fromTo(paragraphsLetters.chars,
+    gsap.fromTo(paragraphsLetters.lines,
       {
         opacity: 0,
         y: -500,
@@ -20,15 +20,18 @@ export default function BioSection() {
         y: 0,
         duration: 0.5,
         ease: "power2.inOut",
-        stagger: 0.01,
+        stagger: 0.2,
         scrollTrigger: {
           trigger: ".bioSection",
           start: "top 50%",
           end: "bottom 20%",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       }
     );
+    return () => {
+      gsap.killTweensOf(paragraphsLetters.lines);
+    }
   });
 
   return (
