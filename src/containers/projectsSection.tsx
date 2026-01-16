@@ -1,6 +1,28 @@
 import { projects } from "@/constant/projects";
 import { LuExternalLink } from "react-icons/lu";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 export default function ProjectsSections() {
+  useGSAP(() => {
+    gsap.fromTo(".projects", {
+      opacity: 0,
+      y: 100,
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.25,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: ".projectsSection",
+        start: "top 50%",
+        end: "bottom bottom",
+        once: true,
+      },
+    });
+
+  });
+
   return (
     <section id="projects" className="projectsSection">
       <div className="container">
