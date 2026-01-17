@@ -58,8 +58,8 @@ export default function SkillsSection() {
 
       if (window.innerWidth < 768) {
         // Mobile radius and center
-        radiusX = containerWidth * 0.78125;
-        radiusY = containerHeight * 0.625;
+        radiusX = containerWidth * 0.7;
+        radiusY = containerHeight * 0.5;
         centerX = containerWidth / 2;
         centerY = containerHeight / 2;
       } else if (window.innerWidth < 1024) {
@@ -71,7 +71,7 @@ export default function SkillsSection() {
       } else {
         // Desktop radius and center
         radiusX = containerWidth * 0.35;
-        radiusY = containerHeight * 0.9;
+        radiusY = containerHeight * 0.75;
         centerX = containerWidth / 2;
         centerY = containerHeight / 2;
       }
