@@ -9,8 +9,8 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-2);
-  padding: 0 var(--spacing-3);
-  max-width: 1400px;
+  /* padding: 0 var(--spacing-3); */
+  /* max-width: 1400px; */
   margin: 0 auto;
 }
 
@@ -20,6 +20,7 @@ section {
   min-height: 100svh;
   width: 100%;
   padding-top: 100px;
+  padding-bottom: 100px;
   .container {
     max-width: 90%;
     width: 100%;
@@ -27,10 +28,16 @@ section {
     height: auto;
   }
 }
+.bioSection,
+.resumeSection,
+.projectsSection {
+  @media (min-width: 1024px) {
+    max-width: 1400px;
+  }
+}
 
 .introductionSection {
   min-height: 100svh;
-
   .introductionSection__content {
     height: 100%;
     max-height: 90vh;
@@ -83,9 +90,6 @@ section {
     margin-bottom: var(--spacing-2);
     line-height: 1.75;
     font-size: var(--font-size-1);
-    @media (min-width: 768px) {
-      font-size: var(--font-size-2);
-    }
     &::first-letter {
       font-weight: 600;
       font-size: var(--font-size-2);
@@ -126,26 +130,40 @@ section {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2);
-    text-align: center;
+    text-align: left;
     z-index: 1;
     position: relative;
     margin-top: var(--spacing-2);
     font-size: var(--font-size-1);
-    
+    border-radius: var(--radius-xl);
+    corner-shape: squircle;
+    padding: var(--spacing-2);
+    box-shadow: lch(66.45% 17.08 256.75 / 0.48) 6px 2px 16px 0px,
+      lch(100% 0.01 296.81 / 0.8) -6px -2px 16px 0px;
+    position: relative;
+    max-width: 800px;
+    background: radial-gradient(
+      circle at bottom right,
+      5%,
+      var(--item-background-color) 40%
+    );
+
     @media (min-width: 768px) {
-      padding: 0 var(--spacing-4);
+      padding: var(--spacing-4);
       font-size: var(--font-size-2);
     }
   }
 
   .skillsSection__content__description {
-    max-width: 800px;
-    margin: 0 auto;
     line-height: 1.75;
+    z-index: 1;
   }
 
   .skillsSection__animation {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
     width: 100%;
     flex: 1 1 auto;
     height: 100%;
@@ -175,7 +193,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-1);
-    padding: var(--spacing-1);
+    padding: var(--spacing-2);
     border-radius: var(--radius-lg);
     transition: all 0.3s ease;
     width: 80px;
@@ -230,23 +248,15 @@ section {
   }
 }
 
-
 .resumeSection {
-  .resumeContainer {
+  .resumeSection__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-2);
-    padding: var(--spacing-2);
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
   .resumeSection__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: var(--spacing-2);
   }
 
@@ -277,6 +287,12 @@ section {
     &:hover .resumeLink__link__icon {
       color: oklch(0.95 0 0);
     }
+    @media (min-width: 1024px) {
+      max-width: 250px;
+      width: 100%;
+      text-align: center;
+      align-self: flex-end;
+    }
   }
 
   .resumeLink__link__icon {
@@ -285,7 +301,7 @@ section {
 
   .experienceSection,
   .educationSection {
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     margin: var(--spacing-4) auto;
     display: flex;
@@ -301,7 +317,8 @@ section {
     margin: 0 auto;
     padding: var(--spacing-2);
     border-radius: var(--radius-lg);
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+      rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     background-color: var(--item-background-color);
   }
 
@@ -309,37 +326,37 @@ section {
   .educationSection__item__header {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-2);
   }
 
   .experienceSection__title,
   .educationSection__title {
-    font-size: var(--font-size-2);
+    font-family: var(--font-family-heading);
+    text-transform: uppercase;
+    font-size: clamp(2rem, 2rem + 5vw, 10rem);
     font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-1);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-1);
-    width: fit-content;
+    color: color-mix(in oklch, var(--color-primary) 30%, transparent);
   }
 
-  .experienceSection__item__header__name__container {
+  .experienceSection__item__header__name__container,
+  .educationSection__item__header__name__container {
     display: flex;
     gap: var(--spacing-1);
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
 
-  .experienceSection__item__header__name {
-    font-size: var(--font-size-1);
-    color: oklch(0.5 0 0);
-    font-weight: 400;
-  }
-
-  .experienceSection__item__header__role,
+  .experienceSection__item__header__name,
   .educationSection__item__header__name {
     font-size: var(--font-size-2);
     font-weight: 600;
+  }
+
+  .experienceSection__item__header__sideInfo,
+  .educationSection__item__header__sideInfo {
+    font-size: var(--font-size-1);
+    color: oklch(0.5 0 0);
+    font-weight: 400;
   }
 
   .experienceSection__item__header__duration,
@@ -390,54 +407,57 @@ section {
     @media (min-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
     }
-
   }
-  
+
   .projects__content {
     backdrop-filter: blur(10px) brightness(1.1);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
     align-items: flex-start;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--color-primary);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
   .projects__content__info {
-    color: white;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
     align-items: flex-start;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    justify-content: space-between;
+    height: 100%;
     width: 100%;
-    background: linear-gradient(to top, rgba(54, 35, 60, 0.8) 70%, transparent);
+    background: radial-gradient(
+      center at bottom right,
+      color-mix(in oklch, var(--color-primary) 50%, transparent) 20%,
+      transparent
+    );
     border-radius: var(--radius-lg);
     padding: var(--spacing-2);
   }
-  
+
   .projects__content__image {
     height: auto;
     aspect-ratio: 16/9;
     width: 100%;
-    object-fit: cover;
-    border-radius: var(--radius-md);
+    object-fit: fill;
+    object-position: center;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   }
-  
+
   .projects__content__name {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-3);
   }
-  
+
   .projects__content__description {
     font-size: var(--font-size-1);
   }
-  
+
   .projects__content__link {
+    align-self: flex-end;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -446,7 +466,7 @@ section {
     color: var(--color-primary);
     text-decoration: none;
     position: relative;
-  
+
     &::before {
       content: "";
       position: absolute;
@@ -457,5 +477,4 @@ section {
       background-color: var(--color-primary);
     }
   }
-  
 }
