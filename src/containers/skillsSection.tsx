@@ -27,11 +27,11 @@ export default function SkillsSection() {
     gsap.fromTo(
       ".skillsSection__content",
       {
-        y: 30,
+        scale: 0.9,
         opacity: 0,
       },
       {
-        y: 0,
+        scale: 1,
         opacity: 1,
         duration: 0.8,
         ease: "power4.out",
