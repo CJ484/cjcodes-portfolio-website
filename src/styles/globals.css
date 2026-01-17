@@ -99,7 +99,6 @@ html {
   background-color: var(--page-background-color);
   color: var(--text-color);
   scroll-behavior: auto;
-  scroll-padding-top: 100px;
   scroll-snap-type: y mandatory;
 }
 
