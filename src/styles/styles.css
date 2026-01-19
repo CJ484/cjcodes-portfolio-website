@@ -146,7 +146,7 @@ section {
     max-width: 800px;
     background: radial-gradient(
       circle at bottom right,
-      5%,
+      transparent 5%,
       var(--item-background-color) 40%
     );
 
