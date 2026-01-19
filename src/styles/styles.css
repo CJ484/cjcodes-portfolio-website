@@ -9,8 +9,6 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-2);
-  /* padding: 0 var(--spacing-3); */
-  /* max-width: 1400px; */
   margin: 0 auto;
 }
 
@@ -118,7 +116,8 @@ section {
   align-items: center;
   height: 100vh;
   max-height: 100vh;
-  padding: var(--spacing-2);
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
   position: relative;
   overflow: hidden;
 
