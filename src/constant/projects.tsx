@@ -10,14 +10,14 @@ const projectList: ProjectProps[] = [
   {
     id: 12,
     name: "El Café",
-    image: "/images/projects/el_cafe.webp",
+    image: "/images/projects/elCafe.webp",
     description: "A website for a local coffee shop that I created. The website is a simple design that includes a Menu Page that is synced to FutureTasty for easy management. The website was converted from a multiple page website to a single page website using Vite and React. I chose to use Vite because it is a fast and lightweight build tool that is easy to use and configure.",
     link: "https://elcafeny.netlify.app/",
   },
   {
     id: 11,
-    name: "Balloon Decoration",
-    image: "/images/projects/balloon_decoration.webp",
+    name: "Korra Decor",
+    image: "/images/projects/korraDecor.webp",
     description: "This is a website design that I created to practice my css abilities. and implement a responsive design. The website is a simple design that includes 3d animations and lottie animations. Using open source libraries I was able to quickly implement the animations and the website is fully responsive as a mobile first design.",
     link: "https://korra-decor.vercel.app/",
   },
@@ -31,7 +31,7 @@ const projectList: ProjectProps[] = [
   {
     id: 8,
     name: "Iglesia El Nazareno",
-    image: "/images/projects/iglesia_el_nazareno.webp",
+    image: "/images/projects/iglesiaElNazareno.webp",
     description: "A local Pentecostal church website that I created. The website is a simple design that includes a Calendar of Events Page that is synced to a Google Drive Folder for easy management.",
     link: "https://iglesiaelnazareno.netlify.app/",
   },
@@ -52,7 +52,7 @@ const projectList: ProjectProps[] = [
   {
     id: 5,
     name: "Connect Four",
-    image: "/images/projects/connect_four.webp",
+    image: "/images/projects/connectFour.webp",
     description: "The classic game of Connect Four. With this project, Every user move the game board is checked for a winner using the same game rules.",
     link: "https://connect4-cj484.netlify.app/",
   },
@@ -66,16 +66,9 @@ const projectList: ProjectProps[] = [
   {
     id: 3,
     name: "Neighbor My Dog",
-    image: "/images/projects/dogwalk.webp",
+    image: "/images/projects/dogWalk.webp",
     description: "A simple implementation of the Dog Walk game in JavaScript.",
     link: "https://neighbormydog.netlify.app",
-  },
-  {
-    id: 2,
-    name: "Log In Form",
-    image: "/images/projects/log_in_form.webp",
-    description: "This is a simple log inform that I created to practice using Node.js, Next.js, Express.js, Prisma.io and PostgreSQL.",
-    link: "https://log-in-form-444.netlify.app/",
   },
   {
     id: 1,
