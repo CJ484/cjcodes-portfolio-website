@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "@/not-found";
-import { Header, Footer, SocialLinks, Navbar, Background } from "./components";
+import { Header, Footer, SocialLinks, Navbar, Background, Parallax } from "./components";
 import {
   IntroductionSection,
   BioSection,
@@ -39,7 +39,9 @@ export default function Layout() {
       <Footer />
       <SocialLinks />
       <Navbar />
-      <Background baseColor="#efefef" activeColor="#7159c1" dotSize={5} gap={32} proximity={150} speedTrigger={100} shockRadius={250} shockStrength={5} maxSpeed={5000} resistance={750} returnDuration={1.5} />
+      <Parallax>
+        <Background baseColor="#efefef" activeColor="#7159c1" dotSize={5} gap={32} proximity={150} speedTrigger={100} shockRadius={250} shockStrength={5} maxSpeed={5000} resistance={750} returnDuration={1.5} />
+      </Parallax>
     </div>
   );
 }
