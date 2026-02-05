@@ -201,7 +201,7 @@ export default function SkillsSection() {
     <section id="skills" className="skillsSection">
       <div className="container">
         <div className="skillsSection__content">
-          <h1 className="sectionTitle">Skills</h1>
+          <h1 className="sectionTitle">My tech stack</h1>
           <p className="skillsSection__content__description">
             My tech stack is focused on building custom web applications, but
             I'm equally comfortable working with WordPress, Webflow, and similar
