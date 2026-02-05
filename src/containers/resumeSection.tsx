@@ -49,7 +49,7 @@ export default function ResumeSection() {
       id: 1,
       company: "CJ Codes",
       role: "Freelance Web Developer",
-      duration: "July 2024 - September 2025",
+      duration: "July 2024 - Current",
       description: [
         "Consult with diverse clients to transform business requirements into responsive, high-performance web applications using Next.js.",
         "Develop clean, maintainable, and scalable codebases while adhering to industry-standard security and accessibility (WCAG) protocols.",
