@@ -40,7 +40,7 @@ const projectList: ProjectProps[] = [
     name: "Pixel Perfect Recreation",
     image: "/images/projects/pixelPerfect.webp",
     description: "Using Figma Design guideline, i recreated a website design to practice my CSS abilities. The original design was given by my mentor and I was tasked with recreating the design as precisely as possible.",
-    link: "https://mockk-portfolio.netlify.app",
+    link: "https://mock-portfolio-484.netlify.app",
   },
   {
     id: 6,
@@ -52,21 +52,21 @@ const projectList: ProjectProps[] = [
   {
     id: 5,
     name: "Connect Four",
-    image: "/images/projects/connectFour.webp",
+    image: "https://github.com/CJ484/connect4/raw/main/assets/Images/screenshot_1.png?raw=true",
     description: "The classic game of Connect Four. With this project, Every user move the game board is checked for a winner using the same game rules.",
     link: "https://connect4-cj484.netlify.app/",
   },
   {
     id: 4,
     name: "Pokedex",
-    image: "/images/projects/pokedex.webp",
+    image: "https://github.com/CJ484/newPokeDex/blob/master/assets/Images/screenshot_1.png?raw=true",
     description: "This is a Pokedex app that I created using React and the PokeAPI. A simple API that returns Pokemon data when a GET request is made.",
     link: "https://newpokedexp-484.netlify.app/",
   },
   {
     id: 3,
     name: "Neighbor My Dog",
-    image: "/images/projects/dogWalk.webp",
+    image: "https://github.com/CJ484/dogWalk/raw/master/assets/Images/screenshot_1.png?raw=true",
     description: "A simple implementation of the Dog Walk game in JavaScript.",
     link: "https://neighbormydog.netlify.app",
   },
