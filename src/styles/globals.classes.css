@@ -3,11 +3,12 @@
     font-size: var(--font-size-4);
     font-family: var(--font-family-heading);
     font-weight: 600;
-    text-align: center;
+    text-align: left;
+    text-wrap: pretty;
     margin-bottom: var(--spacing-2);
     max-width: fit-content;
     position: relative;
-    background: radial-gradient(circle at center left, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 40%, transparent) 100%);
+    background: radial-gradient(circle at center left, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 70%, oklch(0 0 0 / 0.5)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
