@@ -11,6 +11,14 @@ export default function SkillsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGSVGElement>(null);
 
+  const hoverAnimation = (item: HTMLElement) => {
+    gsap.to(item, {
+      rotationY: "+=360",
+      duration: 0.6,
+      ease: "power2.out",
+    })
+  }
+
   useGSAP(() => {
     if (!containerRef.current || !pathRef.current) return;
 
@@ -78,13 +86,10 @@ export default function SkillsSection() {
 
       // Create elliptical path (closed loop)
       // Use path element directly for MotionPathPlugin
-      const pathData = `M ${
-        centerX + radiusX
-      },${centerY} A ${radiusX},${radiusY} 0 1,1 ${
-        centerX - radiusX
-      },${centerY} A ${radiusX},${radiusY} 0 1,1 ${
-        centerX + radiusX
-      },${centerY} Z`;
+      const pathData = `M ${centerX + radiusX
+        },${centerY} A ${radiusX},${radiusY} 0 1,1 ${centerX - radiusX
+        },${centerY} A ${radiusX},${radiusY} 0 1,1 ${centerX + radiusX
+        },${centerY} Z`;
       pathElement.setAttribute("d", pathData);
       svg.setAttribute("viewBox", `0 0 ${containerWidth} ${containerHeight}`);
       svg.setAttribute("width", containerWidth.toString());
@@ -201,14 +206,18 @@ export default function SkillsSection() {
     <section id="skills" className="skillsSection">
       <div className="container">
         <div className="skillsSection__content">
-          <h1 className="sectionTitle">My tech stack</h1>
-          <p className="skillsSection__content__description">
-            My tech stack is focused on building custom web applications, but
-            I'm equally comfortable working with WordPress, Webflow, and similar
-            site builders. I'm also skilled in SEO optimization—identifying
-            keyword opportunities and optimizing images for better performance
-            and search visibility.
-          </p>
+          <h2 className="sectionTitle">My tech stack</h2>
+          <ul className="skillsSection__content__description">
+            <li className="skillsSection__content__description__item">
+              I specialize in building high-performance web applications using <strong>React, Next.js, and TypeScript</strong>, leveraging modern frameworks to ensure scalability and SEO efficiency.
+            </li>
+            <li className="skillsSection__content__description__item">
+              Beyond custom code, I’m highly proficient in <strong>WordPress and Webflow</strong>, allowing me to deliver polished, manageable sites using the best tool for the specific project.
+            </li>
+            <li className="skillsSection__content__description__item">
+              As a React advocate, I focus on creating <strong>modular, reusable component architectures</strong> that provide seamless user experiences and maintainable codebases.
+            </li>
+          </ul>
         </div>
         <div ref={containerRef} className="skillsSection__animation">
           <svg
@@ -225,7 +234,7 @@ export default function SkillsSection() {
             <path fill="none" stroke="transparent" strokeWidth="2" />
           </svg>
           {skills.map((skill) => (
-            <div key={skill.name} className="skills__item glassmorphism">
+            <div key={skill.name} className="skills__item" onMouseEnter={(e) => hoverAnimation(e.currentTarget)}>
               <img
                 className="skills__item__image"
                 src={skill.image}
@@ -238,4 +247,4 @@ export default function SkillsSection() {
       </div>
     </section>
   );
-}
+} 
