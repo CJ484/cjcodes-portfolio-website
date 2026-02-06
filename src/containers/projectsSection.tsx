@@ -26,7 +26,7 @@ export default function ProjectsSections() {
   return (
     <section id="projects" className="projectsSection">
       <div className="container">
-        <h1 className="sectionTitle">Projects</h1>
+        <h2 className="sectionTitle">Projects</h2>
         <div className="projects">
           {projects.map((project) => (
             <div key={project.id} className="projects__content">
