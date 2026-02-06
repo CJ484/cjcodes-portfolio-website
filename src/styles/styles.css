@@ -436,7 +436,7 @@ section {
   .educationSection__title {
     font-family: var(--font-family-heading);
     text-transform: uppercase;
-    font-size: clamp(2rem, 2rem + 5vw, 10rem);
+    font-size: clamp(2rem, 2rem + 3.75vw, 10rem);
     font-weight: 600;
     color: color-mix(in oklch, var(--color-primary) 30%, transparent);
   }
