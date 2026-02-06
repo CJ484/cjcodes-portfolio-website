@@ -4,6 +4,7 @@ import { Header, Footer, SocialLinks, Navbar, Background, Parallax } from "./com
 import {
   IntroductionSection,
   BioSection,
+  SeoSection,
   ResumeSection,
   ProjectsSection,
   SkillsSection,
@@ -19,6 +20,7 @@ function Home() {
     <main className="mainContainer">
       <IntroductionSection />
       <BioSection />
+      <SeoSection />
       <SkillsSection />
       <ResumeSection />
       <ProjectsSection />

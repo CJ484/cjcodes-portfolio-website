@@ -1,4 +1,4 @@
-import { LuHouse, LuBriefcase, LuFolder, LuUser } from "react-icons/lu";
+import { LuHouse, LuBriefcase, LuFolder, LuUser, LuSearch } from "react-icons/lu";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "./navbar.css";
@@ -16,6 +16,11 @@ export default function Navbar() {
           label: "Bio",
           href: "#bio",
           icon: <LuUser />,
+        },
+        {
+          label: "SEO",
+          href: "#seo",
+          icon: <LuSearch />,
         },
         {
           label: "Resume",
