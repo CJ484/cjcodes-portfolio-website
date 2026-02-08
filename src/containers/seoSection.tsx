@@ -77,7 +77,7 @@ export default function SeoSection() {
     return (
         <section id="seo" className="seoSection">
             <div className="container">
-                <h2 className="sectionTitle">I improve your website's <b>Ranking</b></h2>
+                <h2 className="sectionTitle">I improve websites' <b>Ranking</b></h2>
                 <div className="seoSection__content">
                     <div className="seoSection__content__info">
                         {seoSectionContent.map((item) => (

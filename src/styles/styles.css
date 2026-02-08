@@ -317,6 +317,10 @@ section {
         gap: var(--spacing-1);
         font-size: var(--font-size-1);
         list-style: none;
+        padding-left: 2em;
+        @media (max-width: 768px) {
+          padding-left: 1em;
+        }
 
         li {
           display: flex;
@@ -364,6 +368,11 @@ section {
       var(--color-primary) 0px 6px 10px 0px;
       @media (max-width: 1024px) {
         max-width: 500px;
+        margin: 0 auto;
+      }
+      @media (max-width: 768px) {
+        aspect-ratio: 1/1;
+        max-width: 300px;
         margin: 0 auto;
       }
 
