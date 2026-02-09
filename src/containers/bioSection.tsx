@@ -24,7 +24,7 @@ export default function BioSection() {
 
     tl.fromTo(".bioSection__imageContainer", {
       opacity: 0,
-      x: -200,
+      x: -1000,
     }, {
       opacity: 1,
       x: 0,
@@ -33,7 +33,7 @@ export default function BioSection() {
     });
     tl.fromTo(".bioSection__text", {
       opacity: 0,
-      y: -100,
+      y: -1000,
     }, {
       opacity: 1,
       y: 0,
@@ -42,7 +42,7 @@ export default function BioSection() {
     });
     tl.fromTo(".bioSection__paragraphContainer--0", {
       opacity: 0,
-      y: -500,
+      y: -1000,
     }, {
       opacity: 1,
       y: 0,
@@ -51,7 +51,7 @@ export default function BioSection() {
     });
     tl.fromTo(".bioSection__paragraphContainer--1", {
       opacity: 0,
-      x: 500,
+      x: 1000,
     }, {
       opacity: 1,
       x: 0,
@@ -60,7 +60,7 @@ export default function BioSection() {
     });
     tl.fromTo(".bioSection__paragraphContainer--2", {
       opacity: 0,
-      y: 500,
+      y: 1000,
     }, {
       opacity: 1,
       y: 0,
@@ -68,14 +68,14 @@ export default function BioSection() {
       ease: bentoAnimationEase,
     });
     tl.fromTo(".bioSection__coffeeIcon", {
-      x: -500,
+      x: -1000,
     }, {
       x: 0,
       duration: bentoAnimationDuration,
       ease: bentoAnimationEase,
     });
     tl.fromTo(".bioSection__reactIcon", {
-      x: -500,
+      x: -1000,
     }, {
       x: 0,
       duration: bentoAnimationDuration,
@@ -83,7 +83,7 @@ export default function BioSection() {
     });
     tl.fromTo(".bioSection__animationContainer", {
       opacity: 0,
-      y: 100,
+      y: 1000,
     }, {
       opacity: 1,
       y: 0,
