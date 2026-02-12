@@ -30,11 +30,13 @@ export default function ProjectsSections() {
         <div className="projects">
           {projects.map((project) => (
             <div key={project.id} className="projects__content">
-              <img
-                className="projects__content__image"
-                src={project.image}
-                alt={project.name}
-              />
+              <a href={project.link} className="projects__content__image__link" target="_blank" rel="noopener noreferrer">
+                <img
+                  className="projects__content__image"
+                  src={project.image}
+                  alt={project.name}
+                />
+              </a>
               <div className="projects__content__info">
                 <h2 className="projects__content__name">{project.name}</h2>
                 <p className="projects__content__description">

@@ -840,6 +840,18 @@ section {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
+  .projects__content:has(.projects__content__image__link:hover),
+  .projects__content:has(.projects__content__image__link:focus),
+  .projects__content:has(.projects__content__link:hover),
+  .projects__content:has(.projects__content__link:focus) {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    transition: all 0.3s ease-in-out;
+    .projects__content__image {
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.05);
+    }
+  }
+
   .projects__content__info {
     color: var(--text-color);
     display: flex;
@@ -858,14 +870,21 @@ section {
     padding: var(--spacing-2);
   }
 
-  .projects__content__image {
-    height: auto;
-    aspect-ratio: 16/9;
+  .projects__content__image__link {
     width: 100%;
-    object-fit: fill;
-    object-position: center;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: block;
+    position: relative;
+    .projects__content__image {
+      height: auto;
+      aspect-ratio: 16/9;
+      width: 100%;
+      object-fit: fill;
+      object-position: center;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
   }
 
   .projects__content__name {
